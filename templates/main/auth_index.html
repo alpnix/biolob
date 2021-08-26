@@ -1,0 +1,12 @@
+
+{% extends 'auth_base.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'base.css' %}">
+
+
+{% block title %} Home - BioLob {% endblock %}
+
+{% block content %}
+<h1>Welcome, <span class="username">{{username|title}}</span></h1>
+<img src="https://bold.expert/wp-content/uploads/2019/08/ElisaRiva.jpg" alt="" height="700" width="900">
+{% endblock %}

@@ -45,3 +45,7 @@
       ripple.appendChild(rippleContainer);
     }
      }());
+
+     $(window).scroll(function() {
+      $("#navbar").toggleClass("scrolled", $(this).scrollTop > 200)
+    });
