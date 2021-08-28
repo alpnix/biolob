@@ -12,6 +12,7 @@ def index(request):
         "messages": Message.objects.filter(username=request.user)
     }
     if request.method == "POST":
+        from . import chatbot
         print(request.POST)
         content = request.POST["content"]
         if not content: 
@@ -27,7 +28,14 @@ def index(request):
             {m.content}
           </p>
         </div>"""
-        return HttpResponse(message)
+        response = f"""
+                <div class="message">
+          <p class="meta">You <span>{m.date.strftime("%b. %d, %H:%M")}</span></p>
+          <p class="text">
+            {chatbot.generate_response(m.content)}
+          </p>
+        """
+        return HttpResponse(message + response)
 
     return render(request, "chatbot/index.html", context)
 
