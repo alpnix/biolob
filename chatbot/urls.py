@@ -4,5 +4,6 @@ from . import views
 
 app_name="chatbot"
 urlpatterns = [
-    path("", views.index, name="index"),
+    path("chatbot/", views.index, name="index"),
+    path("<str:product>/coming-soon/", views.coming_soon, name="coming_soon")
 ]

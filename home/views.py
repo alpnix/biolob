@@ -4,6 +4,7 @@ from .forms import CreateUserForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from chatbot.models import Message
 
 # Create your views here.
 
@@ -43,6 +44,9 @@ def loginPage(request):
     return render(request, "auth/login.html", context)
 
 def logoutPage(request):
+    for message in Message.objects.filter(username=request.user):
+        message.delete()
+
     logout(request)
     return redirect("home:index")
 

@@ -6,7 +6,56 @@
 
 {% block title %} Home - BioLob {% endblock %}
 
+{% block css %}
+<link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/navbar-static/">
+<style>
+    body {
+        height: 100vh !important;
+        position: relative; 
+    }
+    footer {
+        position: absolute !important;
+        bottom: 0 !important;
+    }
+    .jumbotron {
+        margin-bottom: 2rem;
+        background-color: #000000;
+        border-radius: .3rem;
+    }
+    .btn-primary{
+		border: none;
+		background: #8e24aa !important;
+		border: 0;
+	}
+	.btn-primary:focus {
+		border: none;
+	}
+	.btn-primary:focus{
+		border: 0;
+		box-shadow: none;
+	}
+	.btn-primary:active{
+		background: #8e24aa !important;
+		box-shadow: none !important;
+	}
+
+	.btn-primary:hover{
+		background: #8e24aa;
+	}
+
+</style>
+{% endblock %}
+
 {% block content %}
-<h1>Welcome, <span class="username">{{username|title}}</span></h1>
-<img src="https://bold.expert/wp-content/uploads/2019/08/ElisaRiva.jpg" alt="" height="700" width="900">
+<main role="main" class="container">
+    <div class="jumbotron mt-5">
+        <h1>Welcome, <span class="username">{{username|title}}</span></h1>
+        <p class="lead">
+          As Endless Thinkers we are delighted to help you overcome your past traumas with our products. <br>
+          You can go ahead and use our chatbot right away in order to find out more about your traumas based on your sentiments. <br>
+          However, we suggest buying our EEG device, our advanced cameras that detect your facial expression perfectly in order to optimize your results.
+        </p>
+      <a class="btn btn-lg btn-primary" href="{% url 'chatbot:index' %}" role="button">View your chatbot &raquo;</a>
+    </div>
+  </main>
 {% endblock %}

@@ -10,17 +10,23 @@
 /* body */
 
 body {
+	background-color: #222;
 	padding-top: 70px;
+	color: #fff;
 }
 
 /* navbar */
 
-#navbar form {
-	padding-right: 0 !important;
+#navbar {
+	padding-right: 25px;
+	padding-left: 35px;
+	background-color: #000 !important;
 }
 
-#navbar {
-	background-color: #000 !important;
+.navbar-brand img {
+	height: 50px !important;
+	width: 140px !important;
+	padding: 0 !important;
 }
 
 /*searchbox*/

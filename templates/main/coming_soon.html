@@ -1,0 +1,28 @@
+{% extends html %}
+
+{% block css %}
+<style>
+    body {
+        height: 100vh;
+        background-image: url(https://c.tenor.com/HDZECKb1RQYAAAAC/coming-soon-soon.gif);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;    
+    }
+    #container {
+        height: 80vh;
+    }
+</style>
+{% endblock %}
+
+{% block title %} Biolob - Coming Soon {% endblock %}
+
+{% block content %}
+    <div id="container"></div>
+        <script>
+            var navItems = document.querySelectorAll(".navigate");
+            for (const item of navItems) {
+              item.classList.remove("active");
+            }          
+        </script>
+{% endblock %} 
+
