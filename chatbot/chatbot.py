@@ -14,15 +14,13 @@ with open("chatbot/assets/intents.json") as file:
     data = json.load(file)
 
 try:
-    raise(Exception("aldskjdsa"))
-    with open("data.pickle", "rb") as f:
+    with open("chatbot/assets/data.pickle", "rb") as f:
         words, labels, training, output = pickle.load(f)
 except Exception as e:
     words = []
     labels = []
     docs_x = []
     docs_y = []
-    print("\n\n\n\n\n\n\n\n\nerror\n\n\n\n\n\n\n\n\n")
     for intent in data["intents"]:
         for pattern in intent["patterns"]:
             wrds = nltk.word_tokenize(pattern)
@@ -60,7 +58,7 @@ except Exception as e:
     training = numpy.array(training)
     output = numpy.array(output)
 
-    with open("data.pickle", "wb") as f:
+    with open("chatbot/assets/data.pickle", "wb") as f:
         pickle.dump((words, labels, training, output), f)
 
 
@@ -107,6 +105,3 @@ def generate_response(inp):
         return random.choice(responses)
     else:
         return "I didn't quite understand that"
-
-inp = input()
-print(generate_response(inp))

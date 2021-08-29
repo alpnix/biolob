@@ -1,7 +1,8 @@
 from django.http.response import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 
+from . import chatbot
 from .models import Message
 # Create your views here.
 
@@ -12,13 +13,12 @@ def index(request):
         "messages": Message.objects.filter(username=request.user)
     }
     if request.method == "POST":
-        from . import chatbot
         print(request.POST)
         content = request.POST["content"]
         if not content: 
             return render(request, "main/coming_soon.html", context)
         user = request.user
-        m = Message(content=content, username=user)
+        m = Message(content=content, username=user, sender="You")
         m.save()
 
         message = f"""
@@ -28,13 +28,16 @@ def index(request):
             {m.content}
           </p>
         </div>"""
+        r = Message(content=chatbot.generate_response(m.content), username=user, sender="BioBot")
+        r.save()
+
         response = f"""
-                <div class="message">
-          <p class="meta">You <span>{m.date.strftime("%b. %d, %H:%M")}</span></p>
+        <div class="message">
+          <p class="meta">BioBot <span>{r.date.strftime("%b. %d, %H:%M")}</span></p>
           <p class="text">
-            {chatbot.generate_response(m.content)}
+            {r.content}
           </p>
-        """
+        </div>"""
         return HttpResponse(message + response)
 
     return render(request, "chatbot/index.html", context)
@@ -45,3 +48,9 @@ def coming_soon(request, product):
         context["html"] = "auth_base.html"
     
     return render(request, "main/coming_soon.html", context)
+
+def clear_chat(request):
+    for message in Message.objects.filter(username=request.user):
+        message.delete()
+
+    return redirect("chatbot:index")
