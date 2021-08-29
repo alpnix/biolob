@@ -4,7 +4,7 @@ stemmer = LancasterStemmer()
 
 import numpy
 import tflearn
-from tensorflow.python.framework import ops
+# from tensorflow.python.framework import ops
 import random
 import json
 import pickle
@@ -62,7 +62,7 @@ except Exception as e:
         pickle.dump((words, labels, training, output), f)
 
 
-ops.reset_default_graph()
+# ops.reset_default_graph()
 
 net = tflearn.input_data(shape=[None, len(training[0])])
 net = tflearn.fully_connected(net, 8)

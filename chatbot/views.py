@@ -13,7 +13,6 @@ def index(request):
         "messages": Message.objects.filter(username=request.user)
     }
     if request.method == "POST":
-        print(request.POST)
         content = request.POST["content"]
         if not content: 
             return render(request, "main/coming_soon.html", context)

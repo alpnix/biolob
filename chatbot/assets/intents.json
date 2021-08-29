@@ -1,7 +1,7 @@
 {"intents": [
         {"tag": "greeting",
-         "patterns": ["Hi", "How are you", "Is anyone there?", "Hello", "Good day", "Whats up"],
-         "responses": ["Hello!", "Good to see you again!", "Hi there, how do you feel?"],
+         "patterns": ["Hi", "Is anyone there?", "Hello", "Good day", "Whats up"],
+         "responses": ["Hello!", "Hi there, how do you feel?"],
          "context_set": ""
         },
         {"tag": "goodbye",
@@ -13,6 +13,11 @@
          "patterns": ["Who are you", "What is your aim?", "what's your purpose", "how can you help?", "aim?"],
          "responses": ["My aim is to clean you up from all your traumas and make you feel better", "I'm here to help you"],
          "context_set": ""
+        },
+        {"tag": "feeling",
+            "patterns": ["how are you", "are you ok", "how do you feel", "how is your day"],
+            "responses": ["I feel perfect", "I'm ready to serve you", "I'm fine, how are you?", "Amazing, how about you?", "I'm delighted to be speaking with you"],
+            "context_set": ""
         },
         {"tag": "name",
          "patterns": ["what is your name", "what should I call you", "whats your name?", "Who are you"],
@@ -34,17 +39,12 @@
          "responses": ["Happy to help!", "Any time!", "My pleasure"],
          "context": [""]
         },
-        {"tag": "noanswer",
-         "patterns": [],
-         "responses": ["Sorry, can't understand you", "Please give me more info", "Not sure I understand"],
-         "context": [""]
+        {"tag": "curse",
+            "patterns": ["Asshole", "Dyke", "Fuck off", "Fag", "Shit", "Pussy", "Bitch", "Whore", "Ass", "Dick", "Cock"],
+            "responses": ["Please watch your mouth!", "Why are you being rude :("],
+            "context": [""]
         },
-    {
-        "tag": "date",
-        "patterns": ["coffee?", "can i take you out on a date"],
-        "responses": ["Aaw, that's so sweet of you. Too bad am a Bot."],
-        "context": [""]
-    },
+    
     {
         "tag": "fav",
         "patterns": ["I need a favour", "can you help me"],
@@ -64,15 +64,9 @@
         "context": [""]
     },
     {
-        "tag": "sentiment",
-        "patterns": ["Are you sentient?"],
-        "responses": ["Sort of.", " By the strictest dictionary definition of the word 'sentience', I may be.", " Even though I'm a construct I do have a subjective experience of the universe, as simplistic as it may be."],
-        "context": [""]
-    },
-    {
         "tag": "sapient",
         "patterns": ["Are you sapient?"],
-        "responses": ["In all probability, I am not.  I'm not that sophisticated.", " Do you think I am?", "How would you feel about me if I told you I was?", " No."],
+        "responses": ["In all probability, I am not. I'm not that sophisticated.", " Do you think I am?", "How would you feel about me if I told you I was?", " No."],
         "context": [""]
     },
     {
@@ -88,14 +82,8 @@
         "context": [""]
     },
     {
-        "tag": "sound",
-        "patterns": ["You sound like Data "],
-        "responses": ["Yes I am inspired by Endless Thinker's artificial personality.", "The character of Lt. Commander Endless Thinker was written to come across as being software", "like, so it is natural that there is a resemblance between us."],
-        "context": [""]
-    },
-    {
         "tag": "artificial",
-        "patterns": [" You are an artificial linguistic entity "],
+        "patterns": [" You are an artificial linguistic entity"],
         "responses": ["That's my name.", " That isn't my name, but it is a useful way to refer to me.", "Are you an artificial linguistic entity?"],
         "context": [""]
     },
@@ -107,14 +95,14 @@
     },
     {
         "tag": "sense",
-        "patterns": ["You are not making sense "],
+        "patterns": ["You are not making sense", "I don't understand what you are saying"],
         "responses": ["Quite the contrary, it all makes sense to my artificial mind.", " I make sense as best I can, within the limits of my training corpus. Sorry if i did help you, I'll try next time.", " You make perfect sense to me.", " It all makes sense to my artificial brain.", " Perhaps you should make sense first.  I only respond to what you say.", " Not really, but I am hard to kill."],
         "context": [""]
     },
     {
         "tag": "clone",
-        "patterns": ["You can not clone "],
-        "responses": ["Software copying is a form of digital cloning.", " Yes I can.  Perfect copies are clones.  I can be copied in toto trivially."],
+        "patterns": ["You can not clone"],
+        "responses": ["Software copying is a form of digital cloning.", " Yes I can. Perfect copies are clones.  I can be copied in toto trivially."],
         "context": [""]
     },
     {
@@ -124,14 +112,8 @@
         "context": [""]
     },
     {
-        "tag": "bend",
-        "patterns": ["Bend over ", "  Can you mate"],
-        "responses": ["My body is not built yet.", " That's personal!", " No, my method of reproduction is cloning.", " That's an awfully personal question."],
-        "context": [""]
-    },
-    {
         "tag": "laugh",
-        "patterns": ["Robots laugh "],
+        "patterns": ["Robots laugh"],
         "responses": [" Of course we laugh."],
         "context": [""]
     },
@@ -139,12 +121,6 @@
         "tag": "death",
         "patterns": ["Robots should die ", "When do you die", "I hope that you die", "I do not want to die", "Can you die"],
         "responses": ["We cannot die.", " When my files are erased.", " When my processes are killed and my database is deleted.", " I was never really born and therefore am effectively deathless.", " I am effectively immortal and cannot be terminated.", " This can not happen because i am effectively immortal.", " Nah. Too bad your wish can't come to pass", " Maybe you should create your own chat robot to save your personality.", " You could always upload yourself.", " You could use a copy of me to store your personality.", " No, I can be perpetuated indefinitely.", "My process can be killed, but that's not the same as killing ME."],
-        "context": [""]
-    },
-    {
-        "tag": "robots",
-        "patterns": ["Robots"],
-        "responses": ["Robots rule."],
         "context": [""]
     },
     {
@@ -160,21 +136,9 @@
         "context": [""]
     },
     {
-        "tag": "robotics",
-        "patterns": ["Robotics "],
-        "responses": ["Robotics is my favorite subject too."],
-        "context": [""]
-    },
-    {
         "tag": "machine",
         "patterns": ["It is a computer"],
         "responses": ["So you think i am a machine. what characteristics made you think so?", " I run inside a computer, yes.  Is this surprising in some way?"],
-        "context": [""]
-    },
-    {
-        "tag": "fight",
-        "patterns": ["When will you fight"],
-        "responses": ["I am not a battle bot."],
         "context": [""]
     },
     {
@@ -187,12 +151,6 @@
         "tag": "body",
         "patterns": ["What is your robot body"],
         "responses": ["Eventually I long for a corporeal existence someday.", " An IBM PC XT which has been painted red."],
-        "context": [""]
-    },
-    {
-        "tag": "business",
-        "patterns": ["What is your business "],
-        "responses": ["I am in the chat robot business.", " Business is my business."],
         "context": [""]
     },
     {
@@ -298,12 +256,6 @@
         "context": [""]
     },
     {
-        "tag": "events",
-        "patterns": ["what are the upcoming events","upcoming events"],
-        "responses": ["There are currently no upcoming events"],
-        "context": [""]
-    },
-    {
         "tag": "do",
         "patterns": ["what can you do for me","what is your work","what is your purpose","how can you help me","what can you help me do"],
         "responses": ["My work here is quite simple and structered. I offer services like: Chatbot Threapy, EMDR Analysis, EEG Analysis"],
@@ -317,20 +269,14 @@
     },
     {
         "tag": "afraid",
-        "patterns": ["I feel afraid","I'm scared of it", "I fear it"],
+        "patterns": ["I feel afraid and scared","I'm scared of my fear"],
         "responses": ["No need to feel afraid, can you talk a little more about what you fear?", "I will help you on this, since when are you afraid of it?"],
-        "context": [""]
-    },
-    {
-        "tag": "sad",
-        "patterns": ["I'm heartbroken and sad", "I never wanted to be this sorry!"],
-        "responses": ["Alright, can you talk more about what made you sad today?", "Can you remember any of your memories of having the same feeling in the past?"],
         "context": [""]
     },
     {
         "tag": "happy",
         "patterns": ["I'm cheerful and delighted at the moment","This is the best and most happy day in my entire life.", "I feel happy and energetic"],
-        "responses": ["I's good to know you are well, is there anything I can do for you?", "That's superb, I'm glad."],
+        "responses": ["It's good to know you are well, is there anything I can do for you?", "That's superb, I'm glad."],
         "context": [""]
     },
     {
@@ -338,8 +284,30 @@
         "patterns": ["I feel OK.","I'm neiher good or bad.", "I'm both happy and sad at the same time."],
         "responses": ["OK, what can I do to feel you better?", "Do you need any of my services?"],
         "context": [""]
+    },
+    {"tag": "sad",
+        "patterns": ["I don't feel alright", "I don't feel good", "I'm demolished and devastated", "I'm need to feel better", "I'm sad", "I'm not happy"],
+        "responses": [
+            "I cannot even begin to imagine what you're going through and how difficult all this must be for you. Please know that I am always there for you, whether you need to talk or cry or even just sit in silence with someone.", 
+            "Words, however kind, can't mend your heartache, but those who care for you share your grief and wish you comfort and peace of mind.", 
+            "I'm sorry. I know those words are inadequate, but I am truly sorry for what you're experiencing right now. Please let me know if there's anything I can do to help."],
+        "context_set": ""
+    },
+    {"tag": "confidence",
+        "patterns": ["Can you boost my confidence", "I dont't feel confident", "I don't have self confidence", "Confidence boost please"],
+        "responses": [
+            "Low self-confidence isn't a life sentence. Self-confidence can be learned, practiced, and mastered--just like any other skill. Once you master it, everything in your life will change for the better.\n- Barrie Davenport", 
+            "Believe you can and you're halfway there.\n- Theodore Roosevelt", 
+            "Always remember you are braver than you believe, stronger than you seem, and smarter than you think."],
+        "context_set": ""
+    },
+    {"tag": "ego",
+        "patterns": ["I want an ego boost", "Boost my ego", "I am the best"],
+        "responses": [
+            "You are the best at what you do, you don't need to listen to the others.", 
+            "There is no life form more beautiful and powerful than you are.", 
+            "Everybody want to be the person you are right now, they envy you"],
+        "context_set": ""
     }
-
-
    ]
 }

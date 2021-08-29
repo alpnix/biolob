@@ -70,15 +70,13 @@ net = tflearn.regression(net)
 model = tflearn.DNN(net)
 
 MODEL_NAME="model.tfl"
-if os.path.exists(MODEL_NAME):
+"""if os.path.exists(MODEL_NAME):
     model.load(MODEL_NAME)
 else:
-    model.fit(training, output, n_epoch=1000, batch_size=8, show_metric=True)
-    model.save(MODEL_NAME)
-
-'''model.fit(training, output, n_epoch=500, batch_size=8, show_metric=True)
+"""    
+model.fit(training, output, n_epoch=1000, batch_size=8, show_metric=True)
 model.save(MODEL_NAME)
-'''
+
 
 def bag_of_words(s, words):
     bag = [0 for _ in range(len(words))]
@@ -101,14 +99,17 @@ def chat():
         if inp.lower() == "quit":
             break
 
-        results = model.predict([bag_of_words(inp, words)])
+        results = model.predict([bag_of_words(inp, words)])[0]
         results_index = numpy.argmax(results)
         tag = labels[results_index]
 
-        for tg in data["intents"]:
-            if tg['tag'] == tag:
-                responses = tg['responses']
+        if results[results_index] > 0.5:
+            for tg in data["intents"]:
+                if tg['tag'] == tag:
+                    responses = tg['responses']
+            print(random.choice(responses))
 
-        print(random.choice(responses))
+        else:
+            print("I didn't understand what you mean")
 
 chat()

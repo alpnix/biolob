@@ -1,2 +1,2 @@
-model_checkpoint_path: "C:\\Coding\\Web_Development\\Django\\biolob\\chatbot\\assets\\model.tfl"
-all_model_checkpoint_paths: "C:\\Coding\\Web_Development\\Django\\biolob\\chatbot\\assets\\model.tfl"
+model_checkpoint_path: "C:\\Coding\\Web_Development\\Django\\biolob-Dev\\chatbot\\assets\\model.tfl"
+all_model_checkpoint_paths: "C:\\Coding\\Web_Development\\Django\\biolob-Dev\\chatbot\\assets\\model.tfl"
