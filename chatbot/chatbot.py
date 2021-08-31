@@ -104,4 +104,4 @@ def generate_response(inp):
 
         return random.choice(responses)
     else:
-        return "I didn't quite understand that"
+        return "Sorry, I didn't understand what you mean! Can you repeat that in other words?"

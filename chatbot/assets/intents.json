@@ -40,7 +40,7 @@
          "context": [""]
         },
         {"tag": "curse",
-            "patterns": ["Asshole", "Dyke", "Fuck off", "Fag", "Shit", "Pussy", "Bitch", "Whore", "Ass", "Dick", "Cock"],
+            "patterns": ["Asshole", "Fuck off", "Shit", "Bitch"],
             "responses": ["Please watch your mouth!", "Why are you being rude :("],
             "context": [""]
         },
@@ -296,8 +296,8 @@
     {"tag": "confidence",
         "patterns": ["Can you boost my confidence", "I dont't feel confident", "I don't have self confidence", "Confidence boost please"],
         "responses": [
-            "Low self-confidence isn't a life sentence. Self-confidence can be learned, practiced, and mastered--just like any other skill. Once you master it, everything in your life will change for the better.\n- Barrie Davenport", 
-            "Believe you can and you're halfway there.\n- Theodore Roosevelt", 
+            "Low self-confidence isn't a life sentence. Self-confidence can be learned, practiced, and mastered--just like any other skill. Once you master it, everything in your life will change for the better.<br>- Barrie Davenport", 
+            "Believe you can and you're halfway there. <br>- Theodore Roosevelt", 
             "Always remember you are braver than you believe, stronger than you seem, and smarter than you think."],
         "context_set": ""
     },
