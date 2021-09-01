@@ -4,9 +4,7 @@ from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from urllib.parse import urlencode
 
-
 from . import chatbot
-from . import speech_recognizer as sr
 from .models import Message
 # Create your views here.
 
@@ -16,26 +14,9 @@ def index(request):
     context = {
         "messages": Message.objects.filter(username=request.user), 
     }
-    try:
-        context["error"] = request.session["voice_error"]
-        del request.session['voice_error']
-
-        return render(request, "chatbot/index.html", context)
-    except:
-        pass
 
     if request.method == "POST":
       content = request.POST["content"]
-
-      if content==None:
-        error = f"""
-            <div class="message">
-              <p class="meta">BioBot <span>Warning<span/></p>
-              <p class="text">
-                Sorry I could not understand you!
-              </p>
-            </div>"""
-        return HttpResponse(error)
 
       if not content: 
         error = f"""
@@ -85,20 +66,3 @@ def clear_chat(request):
 
     return redirect("chatbot:index")
 
-
-def get_voice(request):
-    content = sr.speechToText()
-
-    if not content:
-      request.session["voice_error"] = "Sorry, I could not understand your voice! Can you speak in a more audible way into your microfone?"
-
-      return redirect("chatbot:index")
-      
-    user = request.user
-    m = Message(content=content, username=user, sender="You")
-    m.save()
-
-    r = Message(content=chatbot.generate_response(m.content), username=user, sender="BioBot")
-    r.save()
-
-    return redirect("chatbot:index")
