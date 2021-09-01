@@ -1,2 +1,4 @@
 # biolob
-This is a Django based biotechnology project that me and my friends are building as an end project to the entrepreneurship program we all attended.
+This is a Django based chatbot and speech recognizer project that aims to find solutions for people needing psychological support. This was made as an end project to the entrepreneurship program I attended.
+
+App url: https://biolob.herokuapp.com/
